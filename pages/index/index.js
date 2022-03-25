@@ -7,8 +7,7 @@ Page({
 
       menuitems: [
         // text标题，hint介绍，url跳转页面，icon图标，tips备注，tap点击事件(与url二选一)
-        { text: '小萌伴APP', hint: '能帮您找手机的聊天伴侣！', url: '', icon: '../../images/icon-xmb-app.png', tips: '', tap: 'showConcatModal' },
-        { text: '在线翻译', hint: '在线英汉互译', url: '../error/update', icon: '../../images/icon-xmb-code.jpg', tips: '', tap: '' }
+        { text: '更多', hint: '', url: '../error/update', tips: '', tap: '' }
       ],
       showConcatModal: false
   },
