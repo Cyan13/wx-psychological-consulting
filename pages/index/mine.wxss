@@ -7,7 +7,7 @@
 .head {
   display:flex;
   width: 100%;
-  background-color: #449f45;
+  background-color: #c8dde5;
   align-items: center;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .userinfo-nickname {
-  color: #ffffff;
+  color:black;
   font-size: 42rpx;
 }
 

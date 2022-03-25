@@ -10,9 +10,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#449f45",
+    "navigationBarBackgroundColor": "#c8dde5",
     "navigationBarTitleText": "xmb",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "custom": false,
@@ -23,16 +23,16 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/icon-index.png",
-        "selectedIconPath": "images/icon-index-selected.png",
-        "text": "首页"
-      },
-      {
         "pagePath": "pages/index/mine",
         "iconPath": "images/icon-mine.png",
         "selectedIconPath": "images/icon-mine-selected.png",
-        "text": "我的"
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon-index.png",
+        "selectedIconPath": "images/icon-index-selected.png",
+        "text": "咨询记录"
       }
     ]
   },
