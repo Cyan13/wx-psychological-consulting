@@ -1,37 +1,43 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/index/mine",
+    "pages/index/index",
     "pages/user/bindUser",
     "pages/user/userInfo",
     "pages/error/update",
     "pages/logs/logs",
-    "pages/imRobot/chat"
+    "pages/im/chat"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#c8dde5",
+    "navigationBarBackgroundColor": "#a8ceb2",
     "navigationBarTitleText": "xmb",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "custom": false,
     "color": "#666666",
-    "selectedColor": "#449f45",
+    "selectedColor": "#8fb899",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "position": "bottom",
     "list": [
       {
         "pagePath": "pages/index/mine",
-        "iconPath": "images/icon-mine.png",
-        "selectedIconPath": "images/icon-mine-selected.png",
+        "iconPath": "images/zhuyehui.png",
+        "selectedIconPath": "images/zhuye.png",
         "text": "首页"
       },
       {
+        "pagePath": "pages/im/chat",
+        "iconPath": "images/zixunhui.png",
+        "selectedIconPath": "images/zixun.png",
+        "text": "咨询"
+      },
+      {
         "pagePath": "pages/index/index",
-        "iconPath": "images/icon-index.png",
-        "selectedIconPath": "images/icon-index-selected.png",
+        "iconPath": "images/lishijilu_huabanhui.png",
+        "selectedIconPath": "images/lishijilu_huaban.png",
         "text": "咨询记录"
       }
     ]

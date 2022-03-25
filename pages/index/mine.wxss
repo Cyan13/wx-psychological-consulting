@@ -7,7 +7,7 @@
 .head {
   display:flex;
   width: 100%;
-  background-color: #c8dde5;
+  background-color: #a8ceb2;
   align-items: center;
 }
 
