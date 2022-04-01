@@ -5,8 +5,7 @@
     "pages/user/bindUser",
     "pages/user/userInfo",
     "pages/error/update",
-    "pages/logs/logs",
-    "pages/im/chat"
+    "pages/logs/logs"
   ],
   "subPackages":[
     {
@@ -41,7 +40,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/im/chat",
+        "pagePath": "pages/error/update",
         "iconPath": "images/zixunhui.png",
         "selectedIconPath": "images/zixun.png",
         "text": "咨询"
