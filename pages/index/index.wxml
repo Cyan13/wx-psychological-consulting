@@ -1,5 +1,16 @@
 <!--index.wxml-->
 
+<view>
+  <picker mode='date'
+          value='selectedProduceDate'
+          start='startProduceDate'
+          end='endProduceDate'
+          fields='day'
+          bindchange='dateChange'>
+    <view>日期范围：{{selectedProduceDate}}至{{selectedProduceDate}}</view>
+  </picker>
+</view>
+
 <!-- 进入客服会话提示--> 
 <view class='modal-bg' wx:if="{{showConcatModal}}" catchtap='dismissConcatModal' catchtouchmove='move'>
   <view class='modal-content-bg' >

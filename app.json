@@ -8,6 +8,18 @@
     "pages/logs/logs",
     "pages/im/chat"
   ],
+  "subPackages":[
+    {
+      "root":"TUI-CustomerService",
+      "name": "TUI-CustomerService",
+      "pages": [
+         "pages/TUI-Conversation/conversation/conversation",
+         "pages/TUI-Chat/chat",
+         "pages/TUI-Conversation/create-conversation/create"
+      ],
+      "independent": false
+    }
+   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#a8ceb2",
