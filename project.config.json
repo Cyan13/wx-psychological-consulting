@@ -1,60 +1,69 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": true,
-    "scopeDataCheck": false,
-    "coverView": true,
-    "es6": false,
-    "postcss": true,
-    "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "autoAudits": false,
-    "newFeature": false,
-    "uglifyFileName": false,
-    "checkSiteMap": false,
-    "uploadWithSourceMap": true,
-    "useIsolateContext": false,
-    "nodeModules": false,
-    "enhance": true,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
-    "showShadowRootInWxmlPanel": true,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "disableUseStrict": false,
-    "ignoreUploadUnusedFiles": true,
-    "minifyWXML": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.12.0",
-  "appid": "wx2c98a39d04329dcc",
-  "projectname": "itlao5-xmb-weapp-master",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "search": {
-      "list": []
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
     },
-    "conversation": {
-      "list": []
+    "setting": {
+        "urlCheck": false,
+        "es6": false,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": false,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "disableUseStrict": false,
+        "minifyWXML": true,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false,
+        "ignoreUploadUnusedFiles": true
     },
-    "game": {
-      "currentL": -1,
-      "list": []
+    "compileType": "miniprogram",
+    "libVersion": "2.12.0",
+    "appid": "wx2c98a39d04329dcc",
+    "projectname": "itlao5-xmb-weapp-master",
+    "debugOptions": {
+        "hidedInDevtools": []
     },
-    "miniprogram": {
-      "list": []
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "search": {
+            "list": []
+        },
+        "conversation": {
+            "list": []
+        },
+        "game": {
+            "currentL": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "list": []
+        }
     }
-  }
 }

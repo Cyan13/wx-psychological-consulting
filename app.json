@@ -1,57 +1,60 @@
 {
-  "pages": [
-    "pages/index/mine",
-    "pages/index/index",
-    "pages/user/bindUser",
-    "pages/user/userInfo",
-    "pages/error/update",
-    "pages/logs/logs"
-  ],
-  "subPackages":[
-    {
-      "root":"TUI-CustomerService",
-      "name": "TUI-CustomerService",
-      "pages": [
-         "pages/TUI-Conversation/conversation/conversation",
-         "pages/TUI-Chat/chat",
-         "pages/TUI-Conversation/create-conversation/create"
-      ],
-      "independent": false
-    }
-   ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#a8ceb2",
-    "navigationBarTitleText": "xmb",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "custom": false,
-    "color": "#666666",
-    "selectedColor": "#8fb899",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "black",
-    "position": "bottom",
-    "list": [
-      {
-        "pagePath": "pages/index/mine",
-        "iconPath": "images/zhuyehui.png",
-        "selectedIconPath": "images/zhuye.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/error/update",
-        "iconPath": "images/zixunhui.png",
-        "selectedIconPath": "images/zixun.png",
-        "text": "咨询"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/lishijilu_huabanhui.png",
-        "selectedIconPath": "images/lishijilu_huaban.png",
-        "text": "咨询记录"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/mine",
+        "pages/index/index",
+        "pages/user/bindUser",
+        "pages/user/userInfo",
+        "pages/error/update",
+        "pages/logs/logs",
+        "pages/consult",
+        "pages/consult/startConsult",
+        "pages/consult/confirm"
+    ],
+    "subPackages": [
+        {
+            "root": "TUI-CustomerService",
+            "name": "TUI-CustomerService",
+            "pages": [
+                "pages/TUI-Conversation/conversation/conversation",
+                "pages/TUI-Chat/chat",
+                "pages/TUI-Conversation/create-conversation/create"
+            ],
+            "independent": false
+        }
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#a8ceb2",
+        "navigationBarTitleText": "xmb",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "custom": false,
+        "color": "#666666",
+        "selectedColor": "#8fb899",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/index/mine",
+                "iconPath": "images/zhuyehui.png",
+                "selectedIconPath": "images/zhuye.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/error/update",
+                "iconPath": "images/zixunhui.png",
+                "selectedIconPath": "images/zixun.png",
+                "text": "咨询"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/lishijilu_huabanhui.png",
+                "selectedIconPath": "images/lishijilu_huaban.png",
+                "text": "咨询记录"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
 }

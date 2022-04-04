@@ -12,7 +12,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     menuitems: [
-      { text: '信息完善', url: '', icon: '../../images/icon-user.png', tips: '', tap: 'bindTapUserInfo' }
+      { text: '信息完善', url: '', icon: '../../images/icon-user.png', tips: '', tap: 'bindTapUserInfo' },
+      { text: '立即咨询', url: '', icon: '../../images/icon-name.png', tips: '', tap: 'bindTapConsult' }
     ]
   },
 
@@ -54,7 +55,7 @@ Page({
     }
   },
   
-  //就诊人信息按钮点击事件
+  //用户信息按钮点击事件
   bindTapUserInfo() {
     if (app.globalData.isBindUser) {
       // 如果已经绑定用户，则跳到用户信息
@@ -63,5 +64,9 @@ Page({
       // 未绑定，则跳到用户绑定
       wx.navigateTo({url: '../user/bindUser'})
     }
+  },
+
+  bindTapConsult() {
+      wx.navigateTo({url: '../consult/confirm'})
   }
 })

@@ -1,0 +1,28 @@
+<!--pages/consult/startConsult.wxml-->
+<!--列表页-->
+<view class='container'>
+  <!--等待框-->
+  <loading hidden="{{!loading}}">加载中...</loading>
+  <!--列表-->
+  <view class='page-body' wx:for="{{list}}">
+    <!--类型判断,显示不同的数据-->
+    <block>
+      <navigator url='../im/im?id={{item.id}}'>
+        <view class='item'>
+          <image class='poster' src='../../images/zixun.png'></image>
+          <view class='meta'>
+            <text class='title'>{{item.trueName}}</text>
+            <view class='artists'>
+              <text decode="{{true}}" space="{{true}}">{{item.email}}&nbsp;</text>
+              <text>{{item.gender}}</text>
+            </view>
+            <view class='rating'>
+              <text>综合评分：</text>
+              <text>{{item.level}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
