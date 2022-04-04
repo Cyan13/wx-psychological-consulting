@@ -6,7 +6,6 @@
       "pages/user/userInfo",
       "pages/error/update",
       "pages/logs/logs",
-      "pages/consult",
       "pages/consult/startConsult",
       "pages/consult/confirm"
   ],
