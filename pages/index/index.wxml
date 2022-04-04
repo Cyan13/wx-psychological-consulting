@@ -11,14 +11,6 @@
   </picker>
 </view>
 
-<!-- 进入客服会话提示--> 
-<view class='modal-bg' wx:if="{{showConcatModal}}" catchtap='dismissConcatModal' catchtouchmove='move'>
-  <view class='modal-content-bg' >
-    <text class='modal-text'>在客服会话中回复\n“mm/萌萌/小萌伴”</text>
-    <button class='modal-btn' open-type='contact'>进入【小萌伴】APP</button>
-  </view>
-</view>
-
 <view class="container">
 
   <view class="list-wrapper">

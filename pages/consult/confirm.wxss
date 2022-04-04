@@ -1,6 +1,6 @@
 /* pages/consult/confirm.wxss */
 page{
-    background-color: #3693c9;
+    background-color: #83bada;
   }
   .conta{
     display: flex;
