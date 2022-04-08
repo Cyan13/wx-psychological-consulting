@@ -27,7 +27,7 @@
     height: 48rpx;
     margin-left: 16rpx;
     border-radius: 24rpx;
-    background-color: #00C8DC;
+    background-color: #4bc0a9;
 }
 .TUI-commom-function-item:first-child{
     margin-left: 48rpx;
