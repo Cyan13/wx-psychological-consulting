@@ -7,7 +7,7 @@ Page({
 
       menuitems: [
         // text标题，hint介绍，url跳转页面，icon图标，tips备注，tap点击事件(与url二选一)
-        { text: '更多', hint: '', url: '../error/update', tips: '', tap: '' }
+        { text: '会话UI test', hint: '', url: '../../TUI-CustomerService/pages/TUI-Chat/chat', tips: '', tap: '' }
       ],
       showConcatModal: false
   },

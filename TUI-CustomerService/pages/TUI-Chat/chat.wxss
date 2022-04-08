@@ -10,7 +10,7 @@
   flex-shrink: 0;
   width: 750rpx;
   height: 176rpx;
-  background-color: #006EFF;
+  background-color: #a8ceb2;
 }
 
 .tui-chatroom-navigatorbar-back{

@@ -65,7 +65,7 @@
 .footer .btn {
   width: 100%;
   padding: 26rpx 0;
-  background: #006EFF;
+  background: #a8ceb2;
   border-radius: 24px;
   border-radius: 24px;
   font-size: 16px;

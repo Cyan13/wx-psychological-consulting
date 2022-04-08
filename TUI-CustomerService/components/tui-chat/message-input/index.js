@@ -36,9 +36,8 @@ Component({
     notShow: false,
     isShow: true,
     commonFunction: [
-      { name: '常用语', key: '0' },
-      { name: '发送订单', key: '1' },
-      { name: '服务评价', key: '2' },
+      { name: '发送订单', key: '0' },
+      { name: '服务评价', key: '1' },
     ],
     displayServiceEvaluation: false,
     showErrorImageFlag: 0,
@@ -230,15 +229,10 @@ Component({
       switch (e.target.dataset.function.key) {
         case '0':
           this.setData({
-            displayCommonWords: true,
-          });
-          break;
-        case '1':
-          this.setData({
             displayOrderList: true,
           });
           break;
-        case '2':
+        case '1':
           this.setData({
             displayServiceEvaluation: true,
           });
