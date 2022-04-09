@@ -14,7 +14,10 @@ Page({
     menuitems: [
       { text: '信息完善', url: '', icon: '../../images/icon-user.png', tips: '', tap: 'bindTapUserInfo' },
       { text: '立即咨询', url: '', icon: '../../images/icon-name.png', tips: '', tap: 'bindTapConsult' }
-    ]
+    ],
+    
+    list: [], // 数据列表
+    loading: true // 显示等待框
   },
 
   /**
@@ -38,6 +41,25 @@ Page({
         }
       })
     }
+
+    const _this = this;
+      // 请求url
+      const url = 'http://101.35.223.56:8080/admin/getWorkerList';
+      // 请求数据
+      wx.request({
+        url: url,
+        method: 'POST',
+        data:{
+            "role": "0"
+        },
+        success: function(res) {
+          console.log(res.data);
+          _this.setData({
+            list: res.data.data,
+            loading: false // 关闭等待框
+          })
+        }
+      })
   },
 
   getUserInfo: function (e) {

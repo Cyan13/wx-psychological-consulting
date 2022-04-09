@@ -10,14 +10,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cardNoArray: ['大陆', '港澳台'],
-    cardNoArrayIndex: 0,
-    telephoneNum: '',
-    currentTime: 60,
-    time: '获取验证码',
-    disabled: false,
-    picValidCodeUrl: appConfig.picCodeUrl
-  },
+    userInfo:{
+
+    }, 
+    formUser:{
+        name:"花花",
+        gender: "",
+        age:18,
+        phone:"17645678967",
+        contactName:"wawa",
+        contactPhone:"18967543456",
+    } 
+},
 
   /**
    * 生命周期函数--监听页面加载

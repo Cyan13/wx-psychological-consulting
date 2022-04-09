@@ -92,3 +92,52 @@
 .marginTop {
   margin-top: 30rpx;
 }
+
+
+
+
+
+.consultContainer{
+  background-color: #ffffff;
+}
+.consult-list{
+  height: 160rpx;
+}
+.item .poster {
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.item .title{
+  color: #333333;
+  font-size: 38rpx;
+  flex-grow: 1;
+}
+.item .meta {
+  flex: 1;
+}
+.item .meta .artists {
+  font-size: 26rpx;
+  color: #999;
+}
+.item .rating {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #3a7a38;
+}
+.tips {
+  font-size: 28rpx;
+  text-align: center;
+  padding: 50rpx;
+  color: #ccc;
+}
+.tips image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.tips image,.tips text {
+  vertical-align: middle;
+}

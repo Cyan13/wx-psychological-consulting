@@ -1,51 +1,42 @@
 <!--pages/user/bindUser.wxml-->
+<view class="conta">
+    <view class="top">
+         <image class="biu" src="../../images/icon-credno.jpg"></image>
+         <view class="nickName">微信用户</view>
+         <view class="other">完善个人信息</view>
+    </view>
 
-<view class='bg'></view>
-<text class='top left right declare'>绑定后可以进行信息查询及相关操作：</text>
-
-<view class='horizon firstrow'>
-  <image class='left icon' src='../../images/icon-name.png'></image>
-  <input class='input' bindinput='nameInput' placeholder='请输入您的姓名'></input>
+    <view class="form">
+        <view class="inbox">
+            <label class="label">真实姓名</label>
+            <input style="text-align:right;width:80%;height:30px;border:none;" model:value="{{formUser.name}}"/>
+        </view>
+        <view class="inbox">
+            <label class="label">性别</label>
+            <radio-group bindchange="bandleChange" style="font-size: 30rpx;text-align:right;width:90%;height:30px;">
+            <radio color="green" value="male"> 男</radio>
+            <radio color="green" value="female"> 女</radio>
+        </radio-group>
+        </view>
+        <view class="inbox">
+            <label class="label">年龄</label>
+            <input style="text-align:right;width:85%;height:30px;border:none;" model:value="{{formUser.age}}" />
+        </view>
+        <view class="inbox">
+            <label class="label">联系电话</label>
+            <input  bindinput="usernameInput" style="text-align:right;width:50%;height: 30px;border:none;" model:value="{{formUser.phone}}" />
+            <button class="pheonButon" size="mini" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+                <view class="text">获取手机号</view>
+            </button>
+        </view>
+        <view class="inbox">
+            <label class="label">紧急联系人</label>
+           <input  bindinput="usernameInput" style="text-align:right;width:75%;height: 30px;border:none;" model:value="{{formUser.contactName}}" />
+        </view>
+        <view class="inbox">
+            <label class="label">紧急联系人电话</label>
+            <input  bindinput="usernameInput" style="text-align:right;width:70%;height: 30px;border:none;" model:value="{{formUser.contactPhone}}" />
+        </view>
+        <view class="button" bindtap="update">确认修改</view>
+    </view>
 </view>
-
-<view class='line'></view>
-
-<view class='horizon secondrow'>
-  <image class='left icon' src='../../images/icon-credno.png'></image>
-  <picker bindchange="bindPickerChange" value="{{cardNoArrayIndex}}" range="{{cardNoArray}}">
-    <view class="picker">{{cardNoArray[cardNoArrayIndex]}}</view>
-  </picker>
-  <view class='arrow'></view>
-  <input class='input' bindinput='cardInput' placeholder='请输入您的证件号'></input>
-</view>
-
-<view class='line'></view>
-
-<view class='horizon firstrow'>
-  <image class='left icon' src='../../images/icon-mobile.png'></image>
-  <input class='input' bindinput='teleInput' placeholder='请输入您的手机号'></input>
-</view>
-
-<view class='line'></view>
-
-<view class='horizon firstrow'>
-  <image class='left icon' src='../../images/icon-pic-code.png'></image>
-  <input class='input' bindinput='picValidCodeInput' placeholder='请输入图形验证码'></input>
-  <image class='icon-ValidCode' src='{{picValidCodeUrl}}' bindtap='tapPicValidCode'></image>
-</view>
-<view class='line'></view>
-
-<view class='horizon firstrow'>
-  <image class='left icon' src='../../images/icon-sms-code.png'></image>
-  <input class='input' bindinput='vertifyCodeInput' placeholder='请输入验证码'></input>
-  <button class='button' disabled="{{disabled}}" bindtap='tapSendVertifyCode'>{{time}}</button>
-</view>
-<view class='line'></view>
-
-<view class='bg'></view>
-<view class='vertical'>
-<text class='top left'>绑定说明</text>
-<text class='top left right declare'>1.请输入真实准确的“姓名”、“证件号”、“手机号”；\n2.“证件号”目前支持：大陆身份证、港澳台身份证；</text>
-</view>
-
-<button class='sureBtn' type='primary' bindtap='sureTap'>确定</button>

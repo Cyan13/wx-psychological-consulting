@@ -19,17 +19,46 @@
     </block>
   </view>
   <view class="list-wrapper marginTop">
-    <view class="div-line"></view>
     <block wx:for="{{menuitems}}" wx:key="item">
+      <view class="div-line"></view>
       <navigator url="{{item.url}}" catchtap='{{item.tap}}' class="list-item" hover-class="list-item_active">
         <view class='item'>
           <image class='item-image' src='{{item.icon}}'></image>
           <text class="item-text">{{item.text}}</text>
           <image class='item-array' src='../../images/array.png'  mode='widthFix'></image>
         </view>
-        <view class="div-line"></view>
       </navigator>
     </block>
   </view>
 </view>
+<view class="div-line"></view>
 
+<view class='consultContainer'>
+  <!--等待框-->
+  <loading hidden="{{!loading}}">加载中...</loading>
+  <!--列表-->
+  <view class="list-wrapper marginTop"></view>
+  <view class='consult-list' wx:for="{{list}}">
+    <view class="div-line"></view>
+    <!--类型判断,显示不同的数据-->
+    <block>
+      <navigator url='../im/im?id={{item.id}}'>
+        <view class='item'>
+          <image class='poster' src='../../images/zixun.png'></image>
+          <view class='meta'>
+            <text class='title'>{{item.trueName}}</text>
+            <view class='artists'>
+              <text decode="{{true}}" space="{{true}}">{{item.email}}&nbsp;</text>
+              <text>{{item.gender}}</text>
+            </view>
+            <view class='rating'>
+              <text>综合评分：</text>
+              <text>{{item.level}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
+<view class="div-line"></view>
