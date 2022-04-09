@@ -70,7 +70,7 @@
 .button{
   margin-top: 50px;
   width: 100%;
-  background-color: #077c26;
+  background-color: #4bc0a9;
   color: #fff;
   height: 40px;
   display:flex;
@@ -79,8 +79,12 @@
   justify-content:center;
 }
 
+.gender{
+  margin: 10rpx;
+}
+
 .pheonButon{
-  background-color: #077c26;
+  background-color: #4bc0a9;
   color: #fff;
 
 }

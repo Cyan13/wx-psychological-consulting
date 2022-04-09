@@ -14,8 +14,8 @@
         <view class="inbox">
             <label class="label">性别</label>
             <radio-group bindchange="bandleChange" style="font-size: 30rpx;text-align:right;width:90%;height:30px;">
-            <radio color="green" value="male"> 男</radio>
-            <radio color="green" value="female"> 女</radio>
+            <radio class="gender" color="#4bc0a9" value="male"> 男</radio>
+            <radio class="gender" color="#4bc0a9" value="female"> 女</radio>
         </radio-group>
         </view>
         <view class="inbox">
