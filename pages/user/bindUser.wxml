@@ -1,7 +1,7 @@
 <!--pages/user/bindUser.wxml-->
 <view class="conta">
     <view class="top">
-         <image class="biu" src="../../images/icon-credno.jpg"></image>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
          <view class="nickName">微信用户</view>
          <view class="other">完善个人信息</view>
     </view>

@@ -27,9 +27,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.stopCountDown();
+    var that = this;
+    if (app.globalData.wxUserInfo) {
+      that.setUserInfo(app.globalData.wxUserInfo);
+    }
   },
 
+  getUserInfo: function (e) {
+    this.setUserInfo(e.detail.userInfo);
+  },
+
+  setUserInfo: function (userInfo) {
+    console.log(userInfo)
+    if (userInfo != null) {
+      app.globalData.wxUserInfo = userInfo
+      this.setData({
+        userInfo: userInfo,
+        hasUserInfo: true
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
