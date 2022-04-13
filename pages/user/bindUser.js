@@ -10,43 +10,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{
-
-    }, 
-    formUser:{
-        name:"花花",
-        gender: "",
-        age:18,
-        phone:"17645678967",
-        contactName:"wawa",
-        contactPhone:"18967543456",
-    } 
+    username:'',
+    trueName:'',
+    gender: '',
+    // age:"",
+    phone:'',
+    emergencyName:'',
+    emergencyNumber:'',
+    state:'0',
+    role:'4',
+    available:'2',
+    password:'123456',
+    registerTime: util.formatTime(new Date())
 },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    if (app.globalData.wxUserInfo) {
-      that.setUserInfo(app.globalData.wxUserInfo);
-    }
+    // this.stopCountDown();
+    this.setData({
+        username: app.globalData.userInfo.userID
+    });
+    const username = app.globalData.userInfo.userID
+
+    // 请求url
+    const _this = this;
+    const url = 'http://101.35.223.56:8080/customer/getCustomerList';
+    // 请求数据
+    wx.request({
+        url: url,
+        method: 'POST',
+        data:{
+            username: username
+        },
+        success: function(res) {
+            const currentUser = res.data.data[0];
+            console.log(currentUser);
+            _this.setData({
+                trueName: currentUser.trueName,
+                gender: currentUser.gender,
+                phone: currentUser.phone,
+                emergencyName: currentUser.emergencyName,
+                emergencyNumber: currentUser.emergencyNumber   
+            });
+        }
+    })
   },
 
-  getUserInfo: function (e) {
-    this.setUserInfo(e.detail.userInfo);
-  },
-
-  setUserInfo: function (userInfo) {
-    console.log(userInfo)
-    if (userInfo != null) {
-      app.globalData.wxUserInfo = userInfo
-      this.setData({
-        userInfo: userInfo,
-        hasUserInfo: true
-      })
-    }
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -103,28 +114,60 @@ Page({
   },
   teleInput: function (e) {
     this.setData({
-      telephoneNum: e.detail.value
+      phone:e.detail.value
     })
   },
   nameInput: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      userName: e.detail.value
+      trueName: e.detail.value
+    })
+    console.log(this.data.trueName)
+  },
+  genderInput: function (e) {
+    this.setData({
+      gender: e.detail.value
     })
   },
-  cardInput: function (e) {
+  emgNameInput: function (e) {
     this.setData({
-      cardNum: e.detail.value
+      emergencyName: e.detail.value
     })
   },
-  picValidCodeInput: function (e) {
+  emgPhoneInput: function (e) {
     this.setData({
-      picValidCode: e.detail.value
+      emergencyNumber: e.detail.value
     })
   },
   vertifyCodeInput: function (e) {
     this.setData({
       vertifyCode: e.detail.value
     })
+  },
+  update(){
+    // console.log(trueName,gender,emergencyNumber,phone,emergencyName);
+    // console.log(this.data.trueName,this.data.gender,this.data.emergencyNumber,this.data.phone,this.data.emergencyName)
+    console.log(this.data)
+    // 请求url
+    const url = 'http://101.35.223.56:8080/customer/updateCustomer';
+    // 请求数据
+    wx.request({
+      url: url,
+      method: 'POST',
+      data:this.data,
+      success: function(res) {
+        console.log(res.data);
+        wx.showToast({
+            title: '修改成功!',
+            duration: 800,
+            icon: 'success',
+          });
+      }
+    });
+
+      wx.switchTab({
+        url: '/pages/index/mine',
+      });
   },
   /**
    * 用户绑定（确定）按钮点击事件
@@ -234,6 +277,26 @@ Page({
     this.setData({
       picValidCodeUrl: appConfig.picCodeUrl + '?r=' + Math.random()
     })
+  },
+  // 获取手机号
+  getPhoneNumber: function (e) {
+    var that = this;
+    console.log(e.detail.errMsg == "getPhoneNumber:ok");
+    // if (e.detail.errMsg == "getPhoneNumber:ok") {
+    //   wx.request({
+        // url: 'http://localhost/index/users/decodePhone',
+        // data: {
+        //   encryptedData: e.detail.encryptedData,
+        //   iv: e.detail.iv,
+        //   sessionKey: that.data.session_key,
+        //   openid: openid,
+        // },
+        // method: "post",
+        // success: function (res) {
+        //   console.log(res);
+        // }
+    //   })
+    // }
   },
 
   /**

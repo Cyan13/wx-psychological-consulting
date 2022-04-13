@@ -31,15 +31,19 @@ Page({
   onLoad(options) {
     const { config } = this.data;
     config.sdkAppID = app.globalData.SDKAppID;
+    // userInfo:app.globalData.wxUserInfo,
     config.userID = app.globalData.userInfo.userID;
+    // config.userID = app.globalData.wxUserInfo.nickName;
     config.userSig = app.globalData.userInfo.userSig;
+    // config.userSig = genTestUserSig(userID).userSig;
     config.tim = wx.$TUIKit;
     this.setData({
       config,
     }, () => {
-      this.TRTCCalling = this.selectComponent('#tui-calling');
-      this.TRTCCalling.init();
+    //   this.TRTCCalling = this.selectComponent('#tui-calling');
+    //   this.TRTCCalling.init();
     });
+    console.log('config',config);
     // conversationID: C2C、 GROUP
     logger.log(`| TUI-chat | onLoad | conversationInfomation: ${options.conversationInfomation}`);
     const   payloadData = JSON.parse(options.conversationInfomation);
@@ -64,7 +68,7 @@ Page({
  * 生命周期函数--监听页面卸载
  */
   onUnload() {
-    this.TRTCCalling.destroyed();
+    // this.TRTCCalling.destroyed();
   },
   getConversationName(conversation) {
     if (conversation.type === '@TIM#SYSTEM') {
@@ -112,7 +116,7 @@ Page({
 
       });
     }
-    this.TRTCCalling.destroyed();
+    // this.TRTCCalling.destroyed();
     wx.$TUIKit.setMessageRead({
       conversationID: this.data.conversationID,
     }).then(() => {});

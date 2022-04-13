@@ -4,6 +4,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        // second:5,
         second:5,
         click:false
     },
@@ -69,7 +70,10 @@ Page({
         if(this.data.click==false){
             return
         }
-        wx.navigateTo({  url: '../consult/startConsult' }) 
+        // wx.navigateTo({  url: '../consult/startConsult' }) 
+        wx.navigateTo({
+          url: '../../TUI-CustomerService/pages/TUI-Conversation/create-conversation/create',
+        });
   
     },
     timer: function () {

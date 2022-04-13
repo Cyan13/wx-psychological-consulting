@@ -2,14 +2,22 @@
 
 <view class="container">
   <view class='head head-height'>
-    <block wx:if="{{!hasUserInfo && canIUse}}">
+    <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-unbind">
         <view class="userinfo">
-          <image class="userinfo-avatar" src="../../images/icon-head.png" mode="cover"></image>
-          <text class="userinfo-nickname">微信授权</text>
+            <view class="userinfo-avatar" bindtap="bindViewTap">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <open-data type="userNickName"></open-data>
+          <!-- <image class="userinfo-avatar" src="../../images/icon-head.png" mode="cover"></image>
+          <text class="userinfo-nickname">微信授权</text> -->
         </view>
-        <button class="login-button head-height" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button><!--不可见，用于触发微信授权的按钮 -->
       </view>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
     </block>
     <block wx:else>
       <view class="userinfo">
@@ -40,9 +48,8 @@
   <view class="list-wrapper marginTop"></view>
   <view class='consult-list' wx:for="{{list}}">
     <view class="div-line"></view>
-    <!--类型判断,显示不同的数据-->
     <block>
-      <navigator url='../im/im?id={{item.id}}'>
+      <!-- <navigator url='../im/im?id={{item.id}}'> -->
         <view class='item'>
           <image class='poster' src='../../images/zixun.png'></image>
           <view class='meta'>
@@ -57,7 +64,7 @@
             </view>
           </view>
         </view>
-      </navigator>
+      <!-- </navigator> -->
     </block>
   </view>
 </view>

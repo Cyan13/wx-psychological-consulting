@@ -30,7 +30,8 @@ export function login(options) {
       data,
       success: (res) => {
         app.globalData.userSig = res.data.data.userSig
-        app.globalData.userID = res.data.data.userId
+        // app.globalData.userID = res.data.data.userId
+        app.globalData.userID = app.globalData.wxUserInfo.nickName
         resolve(res)
       },
       fail: (error) => {

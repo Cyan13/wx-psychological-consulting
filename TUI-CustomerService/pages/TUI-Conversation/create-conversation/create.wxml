@@ -1,25 +1,79 @@
 <view class="TUI-Create-conversation-container">
-  <view class="tui-navigatorbar">
-    <image class="tui-navigatorbar-back" bindtap="goBack" src="../../../static/assets/ic_back_white.svg" />
-    <view class="conversation-title">发起会话</view>
-  </view>
-  <view class="tui-search-area">
+  <!-- <view class="tui-search-area">
     <view class="tui-search-bar">
       <image class="tui-searchcion" src="../../../static/assets/serach-icon.svg" />
       <input class="tui-search-bar-input" value="{{userID}}" placeholder="请输入用户ID" bindinput='userIDInput' bindconfirm="getuserProfile"  bindblur="getuserProfile"/>
 
     </view>
-    <view class="tui-showID">您的用户ID  {{userInfo.userID}}</view>
-  </view>
-  <view class="tui-person-to-invite" wx:if="{{searchUser.userID}}" bindtap="handleChoose" >
-    <image  class="tui-normal-choose" src="{{searchUser.isChoose ? '../../../static/assets/single-choice-hover.svg' : '../../../static/assets/single-choice-normal.svg'}}" />
+    <view class="tui-showID">您的用户ID  {{userInfo.nickName}}</view>
+  </view> -->
+  <!-- <view class="tui-person-to-invite" wx:for="{{searchUser}}" bindtap="handleChoose" >
+    <image  class="tui-normal-choose" src="{{item.isChoose ? '../../../../../static/assets/single-choice-hover.svg' : '../../../../static/assets/single-choice-normal.svg'}}" />
     <view class="tui-person-profile">
-      <image class="tui-person-profile-avatar" src="{{searchUser.avatar || 'https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png' }}" />
+      <image class="tui-person-profile-avatar" src="{{item.avatar || 'https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png' }}" />
       <view>
-        <view class="tui-person-profile-nick">{{searchUser.nick}}</view>
-        <view class="tui-person-profile-userID">用户ID：{{searchUser.userID}}</view>
+        <view class="tui-person-profile-nick">{{item.trueName}}</view>
+        <view class="tui-person-profile-userID">用户ID：{{item.email}}</view>
       </view>
     </view>
-  </view>
-  <view class="tui-confirm-btn" bindtap="bindConfirmInvite">确认邀请</view>
+  </view> -->
+
+  <!-- <radio-group class="tui-person-to-invite" wx:for="{{searchUser}}" bindChange="updataRadio">
+    <radio  class="tui-normal-choose" value="{{item.trueName}}" checked="{{item.checked}}">
+    <view class="tui-person-profile">
+      <image class="tui-person-profile-avatar" src="{{item.avatar || 'https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png' }}" />
+      <view>
+        <view class="tui-person-profile-nick">{{item.trueName}}</view>
+        <view class="tui-person-profile-userID">用户ID：{{item.email}}</view>
+</radio-group> -->
+
+
+<!-- <radio-group class="tui-person-to-invite" bindchange="radioChange" wx:for="{{searchUser}}">
+    <view class="tui-normal-choose">
+        <radio value="{{item.username}}" checked="{{item.checked}}">
+        <view class="tui-person-profile">
+            <image class="tui-person-profile-avatar" src="{{item.avatar || 'https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png' }}" />
+            <view>
+                <view class="tui-person-profile-nick">{{item.trueName}}</view>
+                <view class="tui-person-profile-userID">
+                    <text decode="{{true}}" space="{{true}}">{{item.email}}&nbsp;</text>
+                    <text>{{item.gender}}</text>
+                </view>
+                <view class='tui-person-profile-userID'>
+                    <text>综合评分：</text>
+                    <text>{{item.level}}</text>
+                </view>
+            </view>
+        </view>
+    </radio>
+
+    </view>
+</radio-group> -->
+<view class="tui-person-to-invite">
+<radio-group bindchange="radioChange">
+    <label class="tui-normal-choose" wx:for="{{searchUser}}" wx:key="value">
+        <view class="tui-person-profile">
+        <!-- <radio value="{{item.username}}" checked="{{item.checked}}"> -->
+            <radio value="{{item.username}}" checked="true"/>
+            <image class="tui-person-profile-avatar" src="{{item.avatar || 'https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png' }}" />
+            <view>
+                <view class="tui-person-profile-nick">{{item.trueName}}</view>
+                <view class="tui-person-profile-userID">
+                    <text decode="{{true}}" space="{{true}}">{{item.email}}&nbsp;</text>
+                    <text>{{item.gender}}</text>
+                </view>
+                <view class='tui-person-profile-userID'>
+                    <text>综合评分：</text>
+                    <text>{{item.level}}</text>
+                </view>
+            </view>
+    <!-- </radio> -->
 </view>
+
+    </label>
+</radio-group>
+</view>
+
+  <view class="tui-confirm-btn" bindtap="bindConfirmInvite">开始咨询</view>
+</view>
+

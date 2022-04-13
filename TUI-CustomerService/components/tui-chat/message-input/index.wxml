@@ -51,13 +51,13 @@
             <image class="TUI-Extension-icon" src="/static/assets/send-video.svg" />
             <view class="TUI-Extension-slot-name">发送视频</view>
         </view>
-        <view class="TUI-Extension-slot" bindtap="handleServiceEvaluation">
+        <!-- <view class="TUI-Extension-slot" bindtap="handleServiceEvaluation">
             <image class="TUI-Extension-icon" src="/static/assets/service-assess.svg" />
             <view class="TUI-Extension-slot-name">服务评价</view>
-        </view>
+        </view> -->
         <view class="TUI-Extension-slot" bindtap="handleSendOrder">
             <image class="TUI-Extension-icon" src="/static/assets/send-order.svg" />
-            <view class="TUI-Extension-slot-name">发送订单</view>
+            <view class="TUI-Extension-slot-name">发送咨询记录</view>
         </view>
     </view>
     <TUI-Common-Words class="tui-cards" display="{{displayCommonWords}}" bind:sendMessage="$handleSendTextMessage" bind:close="$handleCloseCards" />

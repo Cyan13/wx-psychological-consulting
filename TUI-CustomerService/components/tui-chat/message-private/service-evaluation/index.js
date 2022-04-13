@@ -62,10 +62,25 @@ Component({
       });
 
       this.setData({
-        score: 0,
-        comment: '',
+        score: this.data.score,
+        comment: this.data.comment,
       });
-      this.handleClose();
+      console.log('服务评价data',this.data)
+
+    // 结束咨询提示
+    wx.showToast({
+        title: '咨询结束！', // 标题
+        icon: 'success',  // 图标类型，默认success
+        duration: 800
+        });
+
+    this.handleClose();
+
+    // 结束咨询 跳转至首页
+    wx.switchTab({
+        // url: '../../../../pages/TUI-Index/index',
+        url: '/pages/index/mine',
+      });
     },
   },
 

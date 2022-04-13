@@ -21,7 +21,7 @@ Page({
         url: url,
         method: 'POST',
         data:{
-            "role": "0"
+            "role": "1"
         },
         success: function(res) {
           console.log(res.data);

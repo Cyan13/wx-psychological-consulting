@@ -36,8 +36,8 @@ Component({
     notShow: false,
     isShow: true,
     commonFunction: [
-      { name: '发送订单', key: '0' },
-      { name: '服务评价', key: '1' },
+    //   { name: '发送订单', key: '0' },
+      { name: '结束咨询', key: '1' },
     ],
     displayServiceEvaluation: false,
     showErrorImageFlag: 0,

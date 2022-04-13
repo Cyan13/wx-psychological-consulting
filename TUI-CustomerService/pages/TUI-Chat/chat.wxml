@@ -12,6 +12,6 @@
     <TUI-message-list id="message-list" conversation="{{conversation}}" unreadCount="{{unreadCount}}" bind:changeMemberCount="changeMemberCount" bind:resendMessage="resendMessage"></TUI-message-list>
   </view>
   <view class="message-input" wx:if="{{showChat}}">
-    <TUI-message-input id="message-input" conversation="{{conversation}}" bind:sendMessage="sendMessage"  bind:showMessageErrorImage="showMessageErrorImage" bind:handleCall="handleCall"></TUI-message-input>
+    <TUI-message-input id="message-input" conversation="{{conversation}}" bind:sendMessage="sendMessage"  bind:showMessageErrorImage="showMessageErrorImage" ></TUI-message-input>
   </view>
 </view>

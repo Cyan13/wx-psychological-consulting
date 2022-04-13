@@ -1,3 +1,4 @@
+import { genTestUserSig } from '../../debug/GenerateTestUserSig'
 // pages/index/mine.js
 //获取应用实例
 const app = getApp();
@@ -11,6 +12,9 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    canIUseGetUserProfile: false,
+    // canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
+    canIUseOpenData:false,
     menuitems: [
       { text: '信息完善', url: '', icon: '../../images/icon-user.png', tips: '', tap: 'bindTapUserInfo' },
       { text: '立即咨询', url: '', icon: '../../images/icon-name.png', tips: '', tap: 'bindTapConsult' }
@@ -25,23 +29,40 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    if (app.globalData.wxUserInfo) {
-      that.setUserInfo(app.globalData.wxUserInfo);
-    } else if (that.data.canIUse) {
+    // 获取用户信息
+    if (wx.getUserProfile) {
+        this.setData({
+          canIUseGetUserProfile: true
+        })
+      }
+    
+    // wx.getUserProfile({
+    //     success: res => {
+    //         that.setUserInfo(res.userInfo);
+    //         console.log('ming.js userinfo',res.userInfo)
+    //     }
+    //     })
+
+    //   if (app.globalData.wxUserInfo) {
+    //   that.setUserInfo(app.globalData.wxUserInfo);
+    // } else if (that.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        that.setUserInfo(res.userInfo);
-      }
-    } else {
+    //   app.userInfoReadyCallback = res => {
+    //     that.setUserInfo(res.userInfo);
+    //     console.log('---mine.js elseif - res.userInfo-----',res.userInfo)
+    //   }
+    // } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          that.setUserInfo(res.userInfo);
-        }
-      })
-    }
+    //   wx.getUserInfo({
+    //     success: res => {
+    //       that.setUserInfo(res.userInfo);
+    //     }
+    //   })
+    // };
+       
 
+    // 请求咨询师数据
     const _this = this;
       // 请求url
       const url = 'http://101.35.223.56:8080/admin/getWorkerList';
@@ -50,7 +71,7 @@ Page({
         url: url,
         method: 'POST',
         data:{
-            "role": "0"
+            "role": "1"
         },
         success: function(res) {
           console.log(res.data);
@@ -62,18 +83,82 @@ Page({
       })
   },
 
-  getUserInfo: function (e) {
-    this.setUserInfo(e.detail.userInfo);
+  getUserProfile(e) {
+    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+    wx.getUserProfile({
+      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        console.log(res)
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+
+        const userID = res.userInfo.nickName;
+        const userSig = genTestUserSig(userID).userSig;
+        app.globalData.userInfo = {
+            userSig,
+            userID,
+        };
+         // TUIK login
+         wx.$TUIKit.login({userID: userID, userSig: userSig})
+         .then(()=> {
+             wx.aegis.reportEvent({
+                 name: 'login',
+                 ext1: 'login-success',
+                 ext2: 'imTuikitExternal',
+                 ext3: app.globalData.SDKAppID,
+             })
+             }).catch((error)=> {
+             wx.aegis.reportEvent({
+                 name: 'login',
+                 ext1: `login-failed#error:${error}`,
+                 ext2: 'imTuikitxEternal',
+                 ext3: app.globalData.SDKAppID,
+             })
+         });
+        console.log('mine.js userInfo',app.globalData.userInfo);
+
+      }
+    })
   },
+
+//   getUserInfo: function (e) {
+//     this.setUserInfo(e.detail.userInfo);
+//   },
 
   setUserInfo: function (userInfo) {
     console.log(userInfo)
     if (userInfo != null) {
-      app.globalData.wxUserInfo = userInfo
-      this.setData({
+        app.globalData.wxUserInfo = userInfo
+        this.setData({
         userInfo: userInfo,
         hasUserInfo: true
-      })
+        })
+        const userID = app.globalData.wxUserInfo.nickName;
+        const userSig = genTestUserSig(userID).userSig;
+        app.globalData.userInfo = {
+            userSig,
+            userID,
+        };
+         // TUIK login
+         wx.$TUIKit.login({userID: userID, userSig: userSig})
+         .then(()=> {
+             wx.aegis.reportEvent({
+                 name: 'login',
+                 ext1: 'login-success',
+                 ext2: 'imTuikitExternal',
+                 ext3: app.globalData.SDKAppID,
+             })
+             }).catch((error)=> {
+             wx.aegis.reportEvent({
+                 name: 'login',
+                 ext1: `login-failed#error:${error}`,
+                 ext2: 'imTuikitxEternal',
+                 ext3: app.globalData.SDKAppID,
+             })
+         });
+        console.log('ming.js userInfo',app.globalData.userInfo);
     }
   },
   

@@ -63,13 +63,13 @@
   color: #ffffff;
   font-size: 42rpx;
   text-align:center;
-  background-color: #449f45;
+  background-color: #4bc0a9;
   border-radius: 20rpx;
-  border: 3rpx solid #449f45;
+  border: 3rpx solid #4bc0a9;
   box-shadow:2rpx 2rpx 2rpx 2rpx #E0E3DA;
 }
 .btn-submit-hover {
-  background-color: #219754;
+  background-color: #4bc0a9;
 }
 .width100{
   width: 100%
